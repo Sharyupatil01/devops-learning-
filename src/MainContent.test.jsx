@@ -8,5 +8,5 @@ test("renders the main content", () => {
     screen.getByRole("heading", {
       name: "Welcome to DevOps Learning",
     })
-  ).not.toBeInTheDocument();
+  ).toBeInTheDocument();
 });
