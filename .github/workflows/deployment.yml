@@ -1,6 +1,11 @@
 name : Events Demo 1 
 
-on : ...
+on : 
+   pull_request: 
+    types:
+      - opened 
+   workflow_dispatch:
+
 
 jobs:
   deploy:
@@ -22,4 +27,3 @@ jobs:
         run: npm run build
       - name : deploy
         run: echo "Deploying"
-        
