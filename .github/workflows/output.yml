@@ -1,0 +1,8 @@
+name : Output information
+on : workflow_dispatch
+jobs: 
+    info:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Output information
+              run: echo "The branch name is ${{ github.ref }} and the action name is ${{ github.action }}"
