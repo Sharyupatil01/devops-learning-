@@ -1,44 +1,25 @@
-name: Deploy Project
+name : Events Demo 1 
 
-on: [push , workflow_dispatch]
+on : ...
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Get code
-        uses: actions/checkout@v5
-
-      - name: Install Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: 24
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-
   deploy:
-    needs: test
     runs-on: ubuntu-latest
-
     steps:
-      - name: Get code
+      - name : Output event data 
+        run: echo "{{ toJSON(github.event) }}"
+      - name : get code 
         uses: actions/checkout@v5
-
-      - name: Install Node.js
+      - name : Install Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 24
-
-      - name: Install dependencies
+      - name : Install dependencies
         run: npm install
-
-      - name : Build project 
+      - name : test
+        run: npm run test
+      - name : build
         run: npm run build
-
-      - name : Deploy 
-        run : echo "Deploying..."
+      - name : deploy
+        run: echo "Deploying"
+        
